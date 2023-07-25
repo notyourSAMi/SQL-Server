@@ -1,0 +1,27 @@
+Create Database SAMI
+USE SAMI
+
+
+
+create table Student 
+(
+student_id int primary key,
+student_name varchar(100) unique,
+student_age int check (student_age>=18) ,
+student_batch varchar(100),
+student_remarks text,
+student_gender varchar(100)
+
+)
+
+select * from Student
+ 
+insert  into Student values(2, 'Faisal',17,'TTS','Good','Male');
+insert  into Student values(3, 'Faisal',20,'TTS','Poor','Male');
+insert  into Student values(4, 'Atif',17,'TTS','Good','Male');
+insert  into Student values(5, 'Asif',17,'TTS','Good','Male'); 
+
+alter table Student drop column student_batch
+
+drop table Student
+truncate table Student
