@@ -20,9 +20,10 @@ student_age int check (student_age>=18) ,
 student_batch varchar(100),
 student_remarks text,
 student_gender varchar(100),
+cid int
 )
 
-c_id int refernces foreign key table_seconname(c_id)
+cid int references foreign key cus(cid)
 
 select * from Student
  
