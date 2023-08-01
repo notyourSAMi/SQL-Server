@@ -36,3 +36,47 @@ alter table Student drop column student_batch
 
 drop table cus
 truncate table Student
+
+
+
+
+Create Database SAMI
+USE SAM
+
+
+create table Student 
+(
+student_id int primary key,
+student_name varchar(100),
+student_age int ,
+student_batch varchar(100),
+student_remarks text,
+student_gender varchar(100)
+
+)
+insert  into Student values(2, 'Faisal',17,'TTS','Good','Male');
+insert  into Student values(3, 'Faisal',20,'TTS','Poor','Male');
+insert  into Student values(4, 'Atif',17,'TTS','Good','Male');
+insert  into Student values(5, 'Asif',17,'TTS','Good','Male');
+
+select * from Teacher
+
+
+create table Teacher
+(
+Teacher_id int primary key,
+Teacher_name varchar(100),
+Teacher_age int ,
+Teacher_batch varchar(100),
+Teacher_remarks text,
+Teacher_gender varchar(100),
+Student_id int foreign key references Student(student_id)
+
+)
+
+select * from Teacher 
+
+alter table Student drop column student_batch
+
+drop table Student
+truncate table Student
