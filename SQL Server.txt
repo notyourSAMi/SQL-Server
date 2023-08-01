@@ -80,3 +80,24 @@ alter table Student drop column student_batch
 
 drop table Student
 truncate table Student
+
+
+
+
+create table stuff
+(
+stuff_id int primary key,
+stuff_name varchar(100),
+stuff_salary int
+
+)
+
+insert  into stuff values(1, 'Asif',2100);
+insert  into stuff values(2, 'sami',2344);
+insert  into stuff values(3, 'atif',2500);
+insert  into stuff values(4, 'Asif',3900);
+
+select * from stuff
+
+truncate table stuff
+select stuff_name,sum(stuff_salary) as total_salary from stuff group by stuff_name;
