@@ -102,3 +102,5 @@ select * from stuff
 truncate table stuff
 select stuff_name,sum(stuff_salary) as total_salary from stuff group by stuff_name;
 select * from Student full outer join Teacher on Student.student_id = Teacher.Teacher_id
+
+select * from Student cross join Teacher
