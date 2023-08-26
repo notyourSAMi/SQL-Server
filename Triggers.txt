@@ -1,0 +1,40 @@
+update Students set st_name = 'Asif' where st_id = 17
+select * from Students_log
+select * from Students
+
+				Insert Trigger
+
+
+alter Trigger TriggerStudents ON Students
+for insert
+as
+declare @st_ID int,@St_Name VARCHAR(50),@St_Birthday Date,@log_action Varchar(100),@timestamp datetime;
+select @st_ID = st_id from inserted;
+select @St_Name = st_name from inserted;
+select @St_Birthday = st_birthday from inserted;
+select @log_action = 'INSERTED';
+
+insert into Students_log values (@st_ID,@St_Name,@St_Birthday,@log_action,GETDATE());
+
+print 'AFTER INSERT TRIGGER FIRED'
+go
+
+
+
+				Update Trigger
+
+
+alter Trigger TriggerUpateStudents ON Students
+for update
+as
+declare @st_ID int,@St_Name VARCHAR(50),@St_Birthday Date,@log_action Varchar(100),@timestamp datetime;
+select @st_ID = st_id from inserted;
+select @St_Name = st_name from inserted;
+select @St_Birthday = st_birthday from inserted;
+IF update(st_name) set @log_action ='UPDATE NAME';
+IF update(st_birthday) set @log_action ='UPDATE BIRTHDAY';
+
+insert into Students_log values (@st_ID,@St_Name,@St_Birthday,@log_action,GETDATE());
+
+print 'AFTER UPDATE TRIGGER FIRED'
+go
